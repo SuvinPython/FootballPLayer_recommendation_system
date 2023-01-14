@@ -1,0 +1,19 @@
+h1 {
+    color: green;
+}
+title{
+    color:blue;
+}
+
+#home-button {
+    background-color: #008080;
+    color: #fff;
+    border-radius: 20px;
+    font-size: larger;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }

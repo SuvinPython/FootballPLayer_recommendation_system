@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Football Player Recommendation System</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <style>
+          body {
+            background-color: #F5F5DC;
+            background-image: url("https://images.pexels.com/photos/61143/pexels-photo-61143.jpeg?auto=compress&cs=tinysrgb&w=1600");
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+          }
+          h1 {
+            text-align: center;
+            color: #333;
+            font-weight: 600;
+          }
+          p {
+            text-align: center;
+            font-size: larger;
+            color: #333;
+            font-weight: 400;
+          }
+          #model-description {
+            text-align: center;
+            font-size: larger;
+            color: #333;
+            font-weight: 400;
+            margin-top: 20px;
+          }
+          button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: #fff;
+            border-radius: 20px;
+            font-size: larger;
+            font-weight: 600;
+            text-shadow: 2px 2px #000;
+            box-shadow: 2px 2px #000;
+          }
+        </style>
+    </head>
+  <body>
+    <h1>Welcome to our Football Player Recommendation System</h1>
+    <p>Our system uses advanced machine learning algorithms to recommend the best players for your team.</p>
+    <div id="model-description">
+      <p>Our model is based on cosine similarity between players from the top 5 European leagues:</p>
+      <ul>
+        <li>English Premier League</li>
+        <li>La Liga</li>
+        <li>Bundesliga</li>
+        <li>Serie A</li>
+        <li>Ligue 1</li>
+      </ul>
+    </div>
+    <button onclick="window.location.href='/model'">Start Using the Model</button>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Football Player Recommendation Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #F5F5DC;
+        font-family: 'Montserrat', sans-serif;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        font-weight: 600;
+        margin-top: 50px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+      label {
+        font-size: larger;
+        color: #333;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+      input[type="text"], input[type="number"] {
+        padding: 10px;
+        font-size: larger;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #008080;
+        color: #fff;
+        border-radius: 20px;
+        font-size: larger;
+        font-weight: 600;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+        #result {
+        margin-top: 50px;
+        text-align: center;
+      }
+      #home-button {
+        background-color: #008080;
+        color: #fff;
+        border-radius: 20px;
+        font-size: larger;
+        font-weight: 600;
+        padding: 10px 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="home-button">Home</button>
+    <h1>Football Player Recommendation Model</h1>
+    <form>
+      <label for="player-name">Enter player name:</label>
+      <input type="text" id="player-name" name="player-name">
+      <label for="num-players">Number of players to see:</label>
+      <input type="number" id="num-players" name="num-players" value="10" min="1">
+      <label for="max-price">Maximum price in million euros:</label>
+      <input type="number" id="max-price" name="max-price" value="300" min="0">
+      <button type="button" onclick="getRecommendations()">Get Recommendations</button>
+    </form>
+    <div id="result"></div>
+    <script>
+      //event on the button
+      document.getElementById("home-button").addEventListener("click", function() {window.location.href = "/home";});
+      function getRecommendations() {
+
+        const playerName = document.getElementById("player-name").value;
+        const numPlayers = document.getElementById("num-players").value;
+        const maxPrice = document.getElementById("max-price").value;
+        
+        fetch(`/joueur/${playerName}/nombre/${numPlayers}/prix_max/${maxPrice}`).then(response => response.json()).then(data => {
+            
+            // Display the returned dataframe in a table
+            let table = `<table>`;
+            for (let row of data) {
+                table += `<tr>`;
+                for (let cell of row) {
+                    table += `<td>${cell}</td>`;
+                }
+                table += `</tr>`;
+            }
+            table += `</table>`;
+            document.getElementById("result").innerHTML = table;
+        })
+        .catch(error => {
+        console.error(error);
+        document.getElementById("result").innerHTML = `Error: ${error}`;
+        });
+        }
+    </script>
+  </body>
+ </html>
