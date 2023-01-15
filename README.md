@@ -8,7 +8,9 @@ Le projet se décompose en 3 étapes:
     - scrapper les données du site football observatory : https://football-observatory.com/IMG/sites/playerprofile/
     - mettre en place notre modèle de recommendation de joueurs 
 3) Le dossier "Interface WEB & API" permet de créer notre interface web grâce à Fastapi. Il faut télécharger le dossier en entier.
-  - le fichier main.py permet de lancer l'interface web. Il faut lancer la requete : ...
+  - le fichier main.py permet de lancer l'interface web. Il faut lancer ce scrip, puis executer la requete : python -m uvicorn main:app --reload. L'interface web s'ouvre comme ceci : 
+  ![324437328_822517928846298_8868638522775584927_n](https://user-images.githubusercontent.com/97175838/212556172-3ad12499-35b8-4c77-9118-f12b671a783f.png)
+
   - le dossier templates, regroupe les codes html de la page web 
  
 
